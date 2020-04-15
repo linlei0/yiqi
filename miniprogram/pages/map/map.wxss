@@ -1,0 +1,47 @@
+/* miniprogram/pages/map/map.wxss */
+page {
+  background: #f6f6f6;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  height: 100%;
+  width: 100%;
+}
+.container{
+  flex: 1;
+}
+#map {
+  width: 100%;
+  flex: auto;
+}
+.map-bottom{
+  height: 100rpx;
+  width: 100%; 
+  overflow: hidden;
+  display: flex;
+  flex-direction: row;
+  text-align: center;
+}
+
+.map-bottom .map-bottom-item{
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 30rpx;
+}
+.map-bottom .map-bottom-item .map-bottom-item-text{
+  text-indent: 10rpx;
+}
+.map-bottom .map-bottom-item .image-svg{
+  width: 40rpx;
+  height: 40rpx;
+}
+.mask{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background: blue;
+}

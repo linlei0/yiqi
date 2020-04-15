@@ -1,0 +1,51 @@
+<!--miniprogram/pages/map/map.wxml-->
+<view class="container" >
+  <!-- <van-button type="primary">地图</van-button> -->
+   <map 
+   id="map" 
+   latitude="{{latitude}}" 
+   longitude="{{longitude}}" 
+   markers="{{ markers }}"
+   polyline="{{ polyline }}"
+   show-location></map>
+  <view class="map-bottom" hover-class="none" hover-stop-propagation="false">
+      <view  
+        wx:key="index" 
+        class="map-bottom-item" 
+        selectable="false" 
+        space="false" 
+        decode="false"
+        bindtap="play">
+          <image class="image-svg" src="{{!isPlay ? '../../resource/svg/play.svg': '../../resource/svg/stop.svg'}}" mode="aspectFit|aspectFill|widthFix" lazy-load="false" binderror="" bindload="">
+          </image>
+          <view  class="map-bottom-item-text" hover-class="none" hover-stop-propagation="false">
+              {{ !isPlay ? '开始播放':'暂停播放' }}
+          </view>
+    </view>
+    <view  
+        wx:key="index" 
+        class="map-bottom-item" 
+        selectable="false" 
+        space="false" 
+        decode="false"
+        bindtap="speed">
+          <image class="image-svg" src="../../resource/svg/speed.svg" mode="aspectFit|aspectFill|widthFix" lazy-load="false" binderror="" bindload="">
+          </image>
+          <view  class="map-bottom-item-text" hover-class="none" hover-stop-propagation="false">
+              {{ '播放速度' }}
+          </view>
+    </view>
+  </view>
+  <van-toast id="van-toast" />
+  <cover-view class="mask" wx:if="{{ showPopup }}">
+    <van-popup 
+  show="{{ showPopup }}" 
+  bind:close="onClose"
+  position="bottom">
+  <view wx:for="{{speedList}}" wx:key="index" class="" hover-class="none" hover-stop-propagation="false">
+    {{ item.text }}
+  </view>
+  </van-popup>
+  </cover-view>
+  
+</view>
